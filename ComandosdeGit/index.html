@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Comandos y subcomandos de Git - Resumen</title>
+</head>
+<body>
+    <h1>Tutorial para uso del Git para posterior consulta</h1>
+    <h2>Comandos para cambiar carpetas</h2>
+    <ul>
+        <li>cd nombre de carpeta - Sube a la carpeta designada</li>
+        <li>cd.. - Vuelve un nivel arriba</li>
+        <li>ls - lista archivos y carpetas en la carpeta presente</li>
+        <li>pwd - muestra el path de la carpeta actual</li>
+    </ul>
+    <h2>Comandos de Git</h2>
+    <ul>
+        <li>git config - Configuraciones del git</li>
+        <li>git init - crea una carpeta oculta.git y cria repositorio local para uso en git</li>
+        <li>git status - muestra el status</li>
+        <li>git add nombre del archivo - Envia el archivo al area de preparo al commit</li>
+        <li>git commit -m 'initial proyect version' - agrega archivos al snapshot</li>
+        <li>git log - lista los snapshots grabados en commit, con el usuario y la hora y apunta el master</li>
+        <li>git diff - muestra lo que se agregó en verde y lo que se borró en rojo en un archivo</li>
+        <li>git branch - muestra en que branch (rama) estamos.</li>
+        <li>git branch nombredelarama - se agrega una rama</li>
+        <li>git checkout nombredelarama - switchea para la rama nombredelarama</li>
+        <li>git clone direcciondeturepositoriodegithub/bitbucked - importa el repositorio a una carpeta que elija en terminal</li>
+        <li>git tag - lista las etiquetas creadas, son anotaciones de las commits que se puede agregar para dar mas informaciones, sin cambiar la rama</li>
+        <li>git merge - mezcla los cambios entre 2 ramas sin perder el histórico de los commits anteriores</li>
+        <li>git rebase - mezcla los cambios, generando perdida de las commits anteriores, y creando de forma linear los cambios en relacion a la rama tomada como base. <a href="https://betterprogramming.pub/differences-between-git-merge-and-rebase-and-why-you-should-care-ae41d96237b6">Explanación de merge vs rebase </a></li>
+        <li>git remote add origin urldelrepositorio - agrega el repositorio remoto al repositorio local</li>
+        <li>git remote set-url origin urldelrepositorio - cambia de repositorio remoto al repositorio local</li>
+        <li>git remote rm origin - borra el repositorio remoto del repositorio local</li>
+        <li>git remote -v - lista todos los repositorios asociados</li>
+        <li>git remote show origin - Muestra las ramas remotas de los repositorios asociados</li>
+    </ul>
+
+    
+    <h2>Sub comandos de Git</h2>
+    <ul>
+        <li>
+            branch:
+            <ul>
+                <li>git branch -a: Muestra todas las ramas de local y remoto</li>
+                <li>git branch -v: muestra las ramas locales con detalles</li>
+                <li>git branch -D nombredelarama / git branch -d --force nombredelarama: borra la rama nombredelarama</li>
+                <li>git branch -m nombredelarama nombrenuevodelarama: Cambia el nombre de la rama</li>
+                <li></li>
+            </ul>
+        </li>
+        <li>
+            checkout:
+            <ul>
+                <li>git checkout nombredelarama: cambia de rama</li>
+                <li>git checkout -b nombredelanuevarama: atajo para crear nueva rama y cambiar a ella, equivale a branch+checkout</li>
+                
+            </ul>
+        </li>
+        <li>
+            config:
+            <ul>
+                <li>git config --global user.name nombredeusuario- nombre que aparecerá en las commits</li>
+                <li>git config --global user.email emaildeusuario- email del usuario</li>
+                <li>git config --global color.ui true - marco de colores del comando del sistema o git bash</li>
+            </ul>
+        </li>
+        <li>
+            add:
+            <ul>
+                <li>git add (--all or -A) - agrega en el stage, los archivos modificados, nuevos y borrados</li>
+                <li>git add -u - agrega en el stage archivos modificados y archivos borrados</li>
+                <li>git add . - se agrega en el stage archivos nuevos y modificados, sin borrar los archivos delectados </li>
+                <li>git add nombredelarchivo.extension - se agrega el archivo para el commit</li>
+                <li>git add *.txt - se agrega todos los archivos con esta extension</li>
+                <li>git add directorio/*.txt - se agrega todos los archivos con esta extension adentro de la carpeta especificada</li>
+                <li>git add directorio/  - se agrega todos los archivos de la carpeta especificada</li>
+            </ul>
+        </li>
+        <li>
+            tag:
+            <ul>
+                <li>git tag -a nombredelatag -m "mensajedeltag"</li>
+                <li>git show nombredelatag - muestra el commit actual con los datos del tag creado</li>
+                <li>git tag nombredelatag -lw - cria una etiqueta ligera, no contiene otra información, solo el nombre de la etiqueta creada al commit</li>
+                <li>git tag -a nombredelatag checksumdelcommit. Ej.: git tag -a v1.2 4048b3 - Se agrega una tag a un commit hecho en el pasado</li>
+                <li>git push origin --tags - Se envía todas las etiquetas creadas al repo remoto</li>
+            </ul>
+        </li>
+        <li>
+            commit:
+            <ul>
+                <li>git commit --amend -m "mensajedelcommit" - le permite grabar por sobre del ultimo commit sin grabar un commit nuevo. Es para correción de algo que olvidaste o escribir un otro mensaje al que pusiste al ultimo commit</li>
+                <li>git commit -m "mensajedelcommit" - graba el nuevo commit con el mensaje que está escrito entre las aspas.</li>
+            </ul>
+        </li>
+        <li>
+            push:
+            <ul>
+                <li>git push origin branchactual - envia al repo remoto el branchactual con sus commits</li>
+                <li>git push origin --tags - se envia las etiquetas creadas al remoto</li>
+                <li>git push -u origin branchactual- Se envia al remoto el branchactual con sus commits, mismo sin existir la rama branchactual en el remoto, lo cria.</li>
+            </ul>
+        </li>
+        <li>
+            log:
+            <ul>
+                <li>git log --oneline --stat - Muestra los cambios en los commits</li>
+                <li>git log --oneline --graph - mestra el graficos de los cambios de los commits</li>
+            </ul>
+        </li>
+        <li>
+            reset:
+            <ul>
+                <li>git reset HEAD archivo.extension - Saca el archivo.extension del commit grabado</li>
+                <li>git reset --soft HEAD^ - Devuelve el ultimo commit creado y vuelve los cambios al staging</li>
+                <li>git reset --hard HEAD^ - Devuelve el ultimo commit y todos los cambios</li>
+                <li>git reset --hard HEAD^^ - Devuelve los ultimos 2 commits y todos los cambios</li>
+                <li>git reset --hard commit_id - vuelve atras en el arbol de tarbajo, borrando todos los cambios (roll back merge/commit)</li>
+                <li>git reset --soft commit_id - vuelve atras pero no borra los cambios en los archivos</li>
+            </ul>
+        </li>
+    </ul>
+    <p>Los archivos que queremos ignorar podemos, despues de creado en una carpeta, debemos crear un archivo en la carpeta root del git llamado ".gitignore". 
+        En este archivo, ponemos todos las carpetas y archivos que queremos ignorar </p>
+        <p>Ejemplo: está en el archivo .gitignore que puse en la carpeta root. Pongo en las lineas el nombre de ñla carpeta o el nombre del archivo con extension.
+            de ahi se puede hacer un 'git add -gitignore' y despues un 'commit -m "se agrego un .gitignore al proyecto"', y no va a aparecer los archivos en el repositorio. 
+        </p>
+        
+</body>
+</html>
