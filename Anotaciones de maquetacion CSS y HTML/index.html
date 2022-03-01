@@ -11,16 +11,35 @@
     <h1>Apuntes de Maquetacion del Video - Live Coding NUCBA</h1>
     <h2>Apuntes del CSS:</h2>
     <ul>
-        <li>* { <br/> 
-            border-sizing: border-box;<br> 
-            padding: 0;<br> 
-            margin: 0;<br> 
-            } -> Se reseteó todos los margenes y paddings de todos los selectores a cero, y aplicó los tamaños de los conteinedores a inclui las bordas.</li>
+        <li>En el inicio del CSS se reseteó todos los margenes y paddings de todos los selectores a cero, y aplicó la forma de los tamaños de los conteinedores a que incluya los bordes.
+            <picture ><img src="./css0.PNG" alt=""></picture>
+        </li>
         <li>:root {<br> 
             --darkblue: #131354;<br> 
             } -> Se creó la variable --darkblue para todo el archivo css, y su valor es el #131354</li>
         <li>background: var(--darkblue); -> llama el valor de la variable.</li>
-    </ul>
+        <li>display: flex
+            <ul>
+                <li>Si flex-direction es row, justify content es horizontal y align-items es vertical.</li>
+                <li>Si flex-direction es column, justify-content es en la vertical y align-items es en la horizontal.</li>
+            </ul>
+        </li>
+        <li>Max-width -> No deja que el width del elemento, clase o id, pase del valor especificado - Es interesante para el responsive</li>
+        <li>Min-width -> No deja que el width del elemento disminuya mas que el valor especificado - Es interesante para el responsive</li>
     
+    <li>Pseudo elemento ::before para aplicar un overlay en un imagen -> Ej. una section con clase .imagen: se aplica primero un position relative al section en CSS
+        para que el elemento before encuentre su elemento padre. Si no tiene ningun position, va a aparecer despues de body. Ejemplo abajo:</li>
+    <section class="imagen">
+        <picture class="picture1">
+            <img src="./spectrum.webp" alt="">
+            <legend>Agregamos el imagen, y pusimos al pictur un pseudo-elemento ::before </legend>
+        </picture>
+    </section>    
+    <li>De esta forma, el pseudo pseudo-elemento ::before, estilizando un color y un opacity, con width 100%, height 100%, position:absolute, y agregando un position: relative al section, obtemos el overlay en violeta. Tenemos que agregar el position:relative al elemento .imagen para que tome este elemento padre como referencia al pseudo elemento ::before, con position: absolute.</li>
+    <picture><img src="./css1.PNG" alt=""></picture>
+    <li>El atributo z-index:1 indica que en el plano z, tiene priorodad el elemento/clase/id que tiene este estilo. Entonces este se pone adelante del elemento posicionado en el mismo lugar.</li>
+    <picture><img src="./css2.PNG" alt="" style="height: 100px;"></picture>
+    
+
 </body>
 </html>
